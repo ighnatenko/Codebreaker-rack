@@ -1,0 +1,10 @@
+<h3>Codebreaker App</h3>
+
+<p>statistics</p>
+
+<% @score.each do |key, item| %>
+  <p>name: <%= item.name %></p>
+  <p>score: <%= item.score %></p>
+  <p>time: <%= item.time %></p>
+  <p>++++++++++++++++++++++</p>
+<% end %>

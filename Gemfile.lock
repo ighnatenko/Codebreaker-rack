@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ighnatenko/Codebreaker.git
-  revision: b1f62c3e639f6f50de98a480b457fdcf6a51db96
+  revision: 3e2539b43ce820367b98b5a76690a195b9319e2b
   branch: develop
   specs:
     codebreaker (0.1.0)
@@ -8,13 +8,16 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    daemons (1.2.6)
     diff-lcs (1.3)
-    rack (1.6.8)
+    eventmachine (1.2.5)
+    marshal-structure (2.0)
+    rack (2.0.3)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
-    rspec-core (3.7.0)
+    rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -23,14 +26,27 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.0)
+    slim (3.0.9)
+      temple (>= 0.7.6, < 0.9)
+      tilt (>= 1.3.3, < 2.1)
+    temple (0.8.0)
+    thin (1.7.2)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
+    tilt (2.0.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   codebreaker!
-  rack (~> 1.6, >= 1.6.4)
+  marshal-structure (~> 2.0)
+  rack
   rspec
+  slim
+  thin
+  tilt
 
 BUNDLED WITH
    1.16.0
