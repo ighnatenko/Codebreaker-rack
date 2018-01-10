@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ighnatenko/Codebreaker.git
-  revision: 1af9f4c3afa4cc9a6d1d8ff146b5f7edad4f00c3
+  revision: a9934087e123147ef04396d7ea51ad2773e8973f
   branch: develop
   specs:
     codebreaker (0.1.0)

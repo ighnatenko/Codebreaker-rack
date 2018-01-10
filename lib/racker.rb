@@ -48,18 +48,16 @@ class Racker
       game_session.guess(@request.params['code'].to_s)  
     end
 
-    @secret = game_session.secret_code
     @hint_array = game_session.hint_array
     @attemps_count = game_session.attemps_count
     @all_attempts_count = game_session.max_attempts_count
+    @secret = game_session.secret_code
 
-    @user_name = @request.session[:user_name]
-
-    case @request.session[:game].game_process
+    case game_session.game_process
     when :win
-      Rack::Response.new(render("win"))
+      win
     when :lose
-      Rack::Response.new(render("lose"))
+      lose
     else
       Rack::Response.new(render("play"))
     end
@@ -86,7 +84,7 @@ class Racker
   end
 
   def statistics
-    @score = @request.session[:game].statistics
+    @score = game_session.statistics
     Rack::Response.new(render("statistics"))
   end
  
