@@ -1,6 +1,6 @@
 require 'erb'
 require 'rack'
-require 'Codebreaker/game_controller.rb'
+require 'codebreaker'
 
 class Racker
 

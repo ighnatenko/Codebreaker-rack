@@ -1,14 +1,11 @@
-<h3>Welcome to Codebreaker Game!</h3>
-
-<div>
+<div class='login-container'>
+  <h3 class='title'>Codebreaker App</h3>
+  <br>
   <form action="/play" method="get">
-    <label>
-      <input type="text" placeholder="Your name" required name="user_name">
-    </label>
-    <div>
-      <button class="btn btn-primary">Start</button>
-    </div>
+    <input type="text" placeholder="Your name" required name="user_name" class='login-field'>
+    <br>
+    <button class="btn btn-primary start-btn">Start</button>
+    <br>
   </form>
-
-  <a href="/statistics" class="button">Statistics</a>
+  <a href="/statistics" class='statistics-btn btn btn-primary'>Statistics</a>
 </div> 

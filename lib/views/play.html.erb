@@ -1,50 +1,34 @@
+<div class='play-container'>
+  <h3 class='title'>Codebreaker App</h3>
+  <h5 class='title'>Guess code with number from 1 to 6</h5>
 
+  <div class='hint-container'>
+    <form action="/play" method="get" class="code-submit">
+      <input type="number" placeholder="* * * *" class="code-input" required name="code" max="6666">
+      <button class="btn btn-primary submit-btn">Submit</button>
+    </form>
 
-<h2>secret code: <%= @secret %></h2>
-<p>user_name: <%= @user_name %> </p>
-
-
-<h1>Codebreaker App</h1>
-<%= @request.session[:game].hint %>
-<h3>Guess code with number from 1 to 6</h3>
-<form action="/play" method="get" class="code-submit">
-  <input type="number" placeholder="* * * *" class="code-input" required name="code" max=6666 >
-
-  <div>
-    <h6 class="hint">Hint: <span></span></h6>
+    <a href="/hint" class='btn btn-primary hint-btn'>Hint</a>
   </div>
 
-  <div>
-    <button class="button success">Submit</button>
-  </div>
-</form>
+  <div class="attempts">Attempts: <span><%= @attemps_count %></span>/<%= @all_attempts_count %></div>
 
+  <h3>Attempts:</h3>
+  <table class='attempts-table'>
+    <thead class='attempts-table-header'>
+      <tr>
+        <td>Code</td>
+        <td>Matching</td>
+      </tr>
+    </thead>
 
-  <form class="form-hint" action="/hint" method="post">
-      <input type="submit" class="btn btn-danger btn-block" value="Get Hint"/>
-  </form>
-
-
-<div class="attempts">Attempts: <span><%= @attemps_count %></span>/<%= @all_attempts_count %></div>
-
-<h3>Attempts:</h3>
-<table >
-  <thead>
-    <tr>
-      <td>Code</td>
-      <td>Matching</td>
-    </tr>
-  </thead>
-  <tbody>
-  
-  <% @hint_array.each do |hint| %>
-    <tr>
-      <td><%= hint[:code] %></td>
-      <td><%= hint[:matching] %></td>
-    </tr>
-  <% end %>
-
-  </tbody>
-</table>
-
-<div id="results"> </div> 
+    <tbody>
+      <% @hint_array.each do |hint| %>
+        <tr>
+          <td><%= hint[:code] %></td>
+          <td><%= hint[:matching] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

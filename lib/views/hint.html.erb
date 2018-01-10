@@ -1,9 +1,5 @@
-<%= @hint %>
-
- <form class="form-hint" action="/hint" method="post">
-      <input type="submit" class="btn btn-danger btn-block" value="Get Hint"/>
-</form>
-
-<form class="form-hint" action="/play" method="post">
-    <input type="submit" class="btn btn-danger btn-block" value="Back to game"/>
-</form>
+<div class='hint-container'>
+  <h3>Hint: <%= @hint %></h3>
+  <a href="/hint" class='btn btn-primary hint-btn'>Get Hint</a>
+  <a href="/play" class='btn btn-primary back-game-btn'>Back to game</a>
+</div>

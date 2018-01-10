@@ -1,3 +1,79 @@
-body {
-  background: linear-gradient(to top, #DEC01C, #F8F3F3) no-repeat center center fixed;
+.title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.login-field {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.start-btn {
+  width: 100%;
+  margin: 15px auto;
+}
+
+.statistics-btn {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.play-container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.code-input {
+  width: 200px;
+  margin: 10px 100px;
+}
+
+.hint-container {
+  position: relative;
+  margin: 20px auto;
+}
+
+.submit-btn {
+  float: left;
+  width: 170px;
+  margin: 20px 18px;
+}
+
+.hint-btn {
+  width: 170px;
+  margin: 20px auto;
+}
+
+.attempts {
+  text-align: center;
+}
+
+.attempts-table {
+  width: 100%;
+}
+
+.attempts-table-header{
+  background-color: grey;
+}
+
+.attempts-table tr {
+  border: 1px solid black;
+}
+
+.attempts-table td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+tbody tr:nth-child(even){
+  background-color: lightgray;
+}
+
+.hint-container {
+  width: 400px;
 }
