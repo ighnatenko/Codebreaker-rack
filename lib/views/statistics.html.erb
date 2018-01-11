@@ -1,10 +1,26 @@
-<h3>Codebreaker App</h3>
+<div class='statistics-container'>
+  <h3 class='title'>Codebreaker App</h3>
+  <br>
+  <h3>Statistics:</h3>
 
-<p>statistics</p>
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Score</td>
+        <td>Date</td>
+      </tr>
+    </thead>
 
-<% @score.each do |key, item| %>
-  <p>name: <%= item[:name] %></p>
-  <p>score: <%= item[:score] %></p>
-  <p>time: <%= item[:time] %></p>
-  <p>++++++++++++++++++++++</p>
-<% end %>
+    <tbody>
+      <% @score.each do |key, item| %>
+        <tr>
+          <td><%= item[:name] %></td>
+          <td><%= item[:score] %></td>
+          <% time = item[:time] %>
+          <td><%= "#{time.day}/#{time.month}/#{time.year} - #{time.hour}:#{time.min}" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

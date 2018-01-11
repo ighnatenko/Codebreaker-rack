@@ -1,6 +1,5 @@
 require 'erb'
 require 'rack'
-require 'codebreaker'
 
 class Racker
 
@@ -26,7 +25,7 @@ class Racker
     end
   end
 
-  def index  
+  def index
     init_game
     Rack::Response.new(render("index"))
   end
@@ -40,18 +39,7 @@ class Racker
   end
 
   def play
-    if @request.params['user_name'].to_s != ''
-      @request.session[:user_name] = @request.params['user_name'].to_s
-    end
-
-    if @request.params['code'].to_s != ''
-      game_session.guess(@request.params['code'].to_s)  
-    end
-
-    @hint_array = game_session.hint_array
-    @attemps_count = game_session.attemps_count
-    @all_attempts_count = game_session.max_attempts_count
-    @secret = game_session.secret_code
+    game_config
 
     case game_session.game_process
     when :win
@@ -75,12 +63,14 @@ class Racker
 
   def win
     save_game
-    Rack::Response.new(render("win"))
+    @result = 'win'
+    Rack::Response.new(render("game_over"))
   end
 
   def lose
     save_game
-    Rack::Response.new(render("lose"))
+    @result = 'lose'
+    Rack::Response.new(render("game_over"))
   end
 
   def statistics
@@ -89,6 +79,21 @@ class Racker
   end
  
   private
+
+  def game_config
+    if @request.params['user_name'].to_s != ''
+      @request.session[:user_name] = @request.params['user_name'].to_s
+    end
+
+    if @request.params['code'].to_s != ''
+      game_session.guess(@request.params['code'].to_s)  
+    end
+
+    @hint_array = game_session.hint_array
+    @attemps_count = game_session.attemps_count
+    @all_attempts_count = game_session.max_attempts_count
+    @secret = game_session.secret_code
+  end
 
   def game_session
     @request.session[:game]

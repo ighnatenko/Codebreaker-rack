@@ -3,7 +3,7 @@
   <h5 class='title'>Guess code with number from 1 to 6</h5>
 
   <div class='hint-container'>
-    <form action="/play" method="get" class="code-submit">
+    <form action="/play" method="post" class="code-submit">
       <input type="number" placeholder="* * * *" class="code-input" required name="code" max="6666">
       <button class="btn btn-primary submit-btn">Submit</button>
     </form>
@@ -14,8 +14,8 @@
   <div class="attempts">Attempts: <span><%= @attemps_count %></span>/<%= @all_attempts_count %></div>
 
   <h3>Attempts:</h3>
-  <table class='attempts-table'>
-    <thead class='attempts-table-header'>
+  <table>
+    <thead>
       <tr>
         <td>Code</td>
         <td>Matching</td>

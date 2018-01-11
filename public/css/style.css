@@ -53,27 +53,37 @@
   text-align: center;
 }
 
-.attempts-table {
+table {
   width: 100%;
 }
 
-.attempts-table-header{
+thead {
   background-color: grey;
 }
 
-.attempts-table tr {
+table tr {
   border: 1px solid black;
 }
 
-.attempts-table td {
+table td {
   border: 1px solid black;
   text-align: center;
 }
 
-tbody tr:nth-child(even){
+tbody tr:nth-child(even) {
   background-color: lightgray;
 }
 
 .hint-container {
   width: 400px;
+}
+
+.statistics-container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.over-container {
+  width: 400px;
+  margin: 0 auto;
 }
