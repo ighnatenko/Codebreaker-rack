@@ -30,14 +30,6 @@ class Racker
     Rack::Response.new(render("index"))
   end
 
-  def login
-    @request.session[:user_name] = @request.params['user_name'].to_s
-
-    Rack::Response.new do |response|
-      response.redirect('/play')
-    end
-  end
-
   def play
     game_config
 
