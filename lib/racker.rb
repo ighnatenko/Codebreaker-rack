@@ -2,7 +2,7 @@ require 'erb'
 require 'rack'
 
 class Racker
-
+  
   def initialize(env)
     @request = Rack::Request.new(env)
   end
@@ -16,7 +16,6 @@ class Racker
       when '/'           then index
       when '/play'       then play
       when "/play_again" then play_again
-      when "/login"      then login
       when "/hint"       then hint
       when "/win"        then win
       when "/lose"       then lose
@@ -26,11 +25,11 @@ class Racker
   end
 
   def index
-    init_game
     Rack::Response.new(render("index"))
   end
 
   def play
+    init_game unless game_session
     game_config
 
     case game_session.game_process
@@ -72,6 +71,10 @@ class Racker
  
   private
 
+  def game_session
+    @request.session[:game]
+  end
+
   def game_config
     if @request.params['user_name'].to_s != ''
       @request.session[:user_name] = @request.params['user_name'].to_s
@@ -85,10 +88,6 @@ class Racker
     @attemps_count = game_session.attemps_count
     @all_attempts_count = game_session.max_attempts_count
     @secret = game_session.secret_code
-  end
-
-  def game_session
-    @request.session[:game]
   end
 
   def save_game
