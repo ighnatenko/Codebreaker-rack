@@ -25,11 +25,11 @@ class Racker
   end
 
   def index
+    init_game
     Rack::Response.new(render("index"))
   end
 
   def play
-    init_game unless game_session
     game_config
 
     case game_session.game_process
